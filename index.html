@@ -17,8 +17,43 @@
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-container">
+            <div class="loading-logo">
+                <div class="logo-text">EH</div>
+                <div class="loading-ring"></div>
+            </div>
+            <div class="loading-text">
+                <span class="loading-word">Welcome</span>
+                <span class="loading-word">to</span>
+                <span class="loading-word">Eranga's</span>
+                <span class="loading-word">Portfolio</span>
+            </div>
+            <div class="loading-subtitle">
+                <span class="loading-word-sub">Crafting</span>
+                <span class="loading-word-sub">Digital</span>
+                <span class="loading-word-sub">Experiences</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+                <div class="progress-text">0%</div>
+                <div class="loading-status">Initializing portfolio...</div>
+            </div>
+        </div>
+        <div class="loading-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+    </div>
 
-    <!-- Header -->
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+        <!-- Header -->
     <header class="header">
         <a href="#" class="logo">Portfolio</a>
         <i class='bx bx-menu' id="menu-icon"></i>
@@ -26,6 +61,7 @@
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
+            <a href="#skills">Skills</a>
             <a href="#services">Services</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#contact">Contact</a>
@@ -52,7 +88,78 @@
         </div>
 
         <div class="home-img">
-            <img src="images/home.jpg" alt="">
+            <div class="robot-container">
+                <div class="robot">
+                    <div class="robot-head">
+                        <div class="robot-antenna">
+                            <div class="antenna-ball"></div>
+                        </div>
+                        <div class="robot-eyes">
+                            <div class="robot-eye left-eye">
+                                <div class="eyeball">
+                                    <div class="pupil"></div>
+                                </div>
+                            </div>
+                            <div class="robot-eye right-eye">
+                                <div class="eyeball">
+                                    <div class="pupil"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="robot-mouth">
+                            <div class="mouth-line"></div>
+                        </div>
+                    </div>
+                    <div class="robot-body">
+                        <div class="robot-chest">
+                            <div class="chest-panel">
+                                <div class="led-indicator"></div>
+                                <div class="led-indicator"></div>
+                                <div class="led-indicator"></div>
+                            </div>
+                            <div class="chest-screen">
+                                <div class="screen-content">
+                                    <div class="code-line"></div>
+                                    <div class="code-line"></div>
+                                    <div class="code-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="robot-arms">
+                            <div class="robot-arm left-arm">
+                                <div class="arm-segment upper-arm"></div>
+                                <div class="arm-segment lower-arm"></div>
+                                <div class="robot-hand">
+                                    <div class="finger"></div>
+                                    <div class="finger"></div>
+                                    <div class="finger"></div>
+                                </div>
+                            </div>
+                            <div class="robot-arm right-arm">
+                                <div class="arm-segment upper-arm"></div>
+                                <div class="arm-segment lower-arm"></div>
+                                <div class="robot-hand">
+                                    <div class="finger"></div>
+                                    <div class="finger"></div>
+                                    <div class="finger"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="robot-legs">
+                        <div class="robot-leg left-leg">
+                            <div class="leg-segment upper-leg"></div>
+                            <div class="leg-segment lower-leg"></div>
+                            <div class="robot-foot"></div>
+                        </div>
+                        <div class="robot-leg right-leg">
+                            <div class="leg-segment upper-leg"></div>
+                            <div class="leg-segment lower-leg"></div>
+                            <div class="robot-foot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -67,6 +174,201 @@
             <h3>Full Stack Developer | UI/UX Designer!</h3>
             <p>I am a passionate Full Stack Developer and UI/UX Designer, currently a third-year student at SLIT Campus. While still building my experience, I am committed to delivering intuitive user experiences and developing high-quality applications. Focused on continuous learning, teamwork, and problem-solving, I aim to enhance my skills and contribute to innovative projects.</p>
             <a href="https://github.com/Eranga999" class="btn">Read more</a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+        
+        <div class="skills-container">
+            <!-- Technical Skills -->
+            <div class="skills-category">
+                <h3 class="category-title">
+                    <i class='bx bx-code-alt'></i>
+                    Technical Skills
+                </h3>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML5 & CSS3</span>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="95"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">JavaScript (ES6+)</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">React.js</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Node.js & Express</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">PHP</span>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">MySQL</span>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile & Design Skills -->
+            <div class="skills-category">
+                <h3 class="category-title">
+                    <i class='bx bxl-android'></i>
+                    Mobile & Design
+                </h3>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Kotlin (Android)</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Android Studio</span>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Figma UI/UX</span>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Responsive Design</span>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="92"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Bootstrap</span>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Material Design</span>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="82"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Skills (Circular Progress) -->
+        <div class="professional-skills">
+            <h3 class="section-subtitle">Professional Expertise</h3>
+            <div class="circular-skills">
+                                <div class="circular-skill">
+                    <div class="circular-progress" data-percentage="90">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring__circle" stroke="rgba(14, 255, 255, 0.2)" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"></circle>
+                            <circle class="progress-ring__circle progress-ring__circle--active" stroke="#0ef" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"></circle>
+                        </svg>
+                        <div class="skill-percentage">90%</div>
+                    </div>
+                    <h4>Problem Solving</h4>
+                </div>
+                
+                <div class="circular-skill">
+                    <div class="circular-progress" data-percentage="88">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring__circle" stroke="rgba(14, 255, 255, 0.2)" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"></circle>
+                            <circle class="progress-ring__circle progress-ring__circle--active" stroke="#0ef" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"></circle>
+                        </svg>
+                        <div class="skill-percentage">88%</div>
+                    </div>
+                    <h4>Team Collaboration</h4>
+                </div>
+                
+                <div class="circular-skill">
+                    <div class="circular-progress" data-percentage="92">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring__circle" stroke="rgba(14, 255, 255, 0.2)" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"></circle>
+                            <circle class="progress-ring__circle progress-ring__circle--active" stroke="#0ef" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"></circle>
+                        </svg>
+                        <div class="skill-percentage">92%</div>
+                    </div>
+                    <h4>Creative Thinking</h4>
+                </div>
+                
+                <div class="circular-skill">
+                    <div class="circular-progress" data-percentage="95">
+                        <svg class="progress-ring" width="120" height="120">
+                            <circle class="progress-ring__circle" stroke="rgba(14, 255, 255, 0.2)" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"></circle>
+                            <circle class="progress-ring__circle progress-ring__circle--active" stroke="#0ef" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"></circle>
+                        </svg>
+                        <div class="skill-percentage">95%</div>
+                    </div>
+                    <h4>Learning Agility</h4>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -174,6 +476,59 @@
         </form>
     </section>
 
+    <!-- Chatbot Widget -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-icon" id="chatbot-icon">
+            <i class='bx bx-message-dots'></i>
+        </div>
+        
+        <div class="chatbot-popup" id="chatbot-popup">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <h4>Portfolio Assistant</h4>
+                    <span>Ask me about Eranga's work!</span>
+                </div>
+                <button class="chatbot-close" id="chatbot-close">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p><strong>👋 Hello! Welcome to Eranga's Portfolio!</strong></p>
+                        <br>
+                        <p>I'm your friendly portfolio assistant. I can help you discover:</p>
+                        <br>
+                        <p>🚀 <strong>Latest Projects</strong> - Web & mobile applications</p>
+                        <p>💻 <strong>Technical Skills</strong> - Programming expertise</p>
+                        <p>🎯 <strong>Professional Services</strong> - What Eranga offers</p>
+                        <p>📚 <strong>Background</strong> - Education & experience</p>
+                        <p>📞 <strong>Contact Info</strong> - How to connect</p>
+                        <br>
+                        <p>✨ <em>Just ask me anything or use the quick buttons below!</em></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chatbot-input-container">
+                <input type="text" id="chatbot-input" placeholder="Ask me anything about Eranga's portfolio..." />
+                <button id="chatbot-send">
+                    <i class='bx bx-send'></i>
+                </button>
+            </div>
+            
+            <div class="quick-questions">
+                <span class="quick-question" data-question="What projects has Eranga worked on?">Projects</span>
+                <span class="quick-question" data-question="What are Eranga's technical skills?">Skills</span>
+                <span class="quick-question" data-question="What services does Eranga offer?">Services</span>
+                <span class="quick-question" data-question="Tell me about Eranga's background">About</span>
+                <span class="quick-question" data-question="How can I contact Eranga?">Contact</span>
+                <span class="quick-question" data-question="Can I download Eranga's CV?">Resume</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-text">
@@ -193,6 +548,7 @@
 
     <!-- Custom JS -->
     <script src="js/script.js"></script>
+    </div>
 
 </body>
 
