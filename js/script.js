@@ -557,6 +557,15 @@ class PortfolioChatbot {
                 this.respondToMessage(questionText);
             });
         });
+        
+        // Handle mobile keyboard open/close for stable layout
+        this.chatbotInput.addEventListener('focus', () => {
+            this.chatbotPopup.classList.add('keyboard-open');
+            this.scrollToBottom();
+        });
+        this.chatbotInput.addEventListener('blur', () => {
+            this.chatbotPopup.classList.remove('keyboard-open');
+        });
     }
 
     setupResponses() {
@@ -781,7 +790,10 @@ class PortfolioChatbot {
     openChatbot() {
         this.chatbotPopup.classList.add('show');
         this.isOpen = true;
-        
+
+        // Prevent page scroll behind the popup
+        document.body.classList.add('chatbot-open');
+
         // Add a small delay before focusing to ensure animation completes
         setTimeout(() => {
             this.chatbotInput.focus();
@@ -799,6 +811,9 @@ class PortfolioChatbot {
         this.chatbotPopup.classList.remove('show');
         this.isOpen = false;
         this.chatbotInput.blur();
+
+        // Restore page scroll
+        document.body.classList.remove('chatbot-open');
     }
 
     sendMessage() {
@@ -1212,3 +1227,11 @@ function showRobotMessage() {
         }
     }, 3000);
 }
+
+// Setup dynamic viewport unit to stabilize mobile height
+function setVhUnit() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+window.addEventListener('resize', setVhUnit);
+window.addEventListener('orientationchange', setVhUnit);
+document.addEventListener('DOMContentLoaded', setVhUnit);
