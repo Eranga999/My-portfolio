@@ -3339,7 +3339,6 @@ span {
         font-size: 0.95rem;
         padding: 0.7rem 0.9rem;
         border-radius: 10px;
-        line-height: 1.4;
     }
     
     .chatbot-input-container {
@@ -3370,84 +3369,57 @@ span {
         font-size: 0.9rem;
         padding: 0.5rem 0.6rem;
     }
-    
-    .message-content {
-        font-size: 1.2rem;
-        padding: 0.7rem 1rem;
-    }
-    
-    .quick-question {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.6rem;
-    }
 }
 
-/* Additional Chatbot Safety Styles for Edge Cases */
-@media (max-height: 500px) and (orientation: landscape) {
-    .chatbot-popup {
-        height: calc(100vh - 50px) !important;
-        max-height: 90vh !important;
-        bottom: 45px !important;
-    }
-    
-    .chatbot-messages {
-        padding: 0.5rem !important;
-        gap: 0.4rem !important;
-    }
-    
-    .message-content {
-        padding: 0.6rem 0.8rem !important;
-        font-size: 1rem !important;
-        line-height: 1.4 !important;
-    }
-    
-    .chatbot-header {
-        padding: 0.5rem 0.8rem !important;
-    }
-    
-    .chatbot-input-container {
-        padding: 0.5rem !important;
-    }
-    
-    .quick-questions {
-        padding: 0.4rem !important;
-        gap: 0.3rem !important;
-    }
+/* Lock scroll when chatbot is open */
+body.chatbot-open {
+    overflow: hidden;
+    touch-action: none;
 }
 
-@media (max-width: 320px) {
-    .chatbot-popup {
-        width: calc(100vw - 0.5rem) !important;
-        right: 0.25rem !important;
-        border-radius: 14px !important;
-        max-width: 99vw !important;
-    }
-    
-    .chatbot-container {
-        right: 0.25rem !important;
-        bottom: 0.25rem !important;
-    }
-    
-    .chatbot-icon {
-        width: 38px !important;
-        height: 38px !important;
-    }
-    
-    .chatbot-icon i {
-        font-size: 1.4rem !important;
-    }
-    
-    .chatbot-title h4 {
-        font-size: 1.1rem !important;
-    }
-    
-    .chatbot-title span {
-        font-size: 0.8rem !important;
-    }
-}
-
-/* Prevent chatbot from going off-screen on any device */
+/* Chatbot mobile stability and overflow protection */
 .chatbot-popup {
-    min-width: 280px;
-    min-height: 300px;
+    /* Use dynamic viewport units to avoid iOS URL bar jump */
+    height: min(550px, calc(var(--vh, 1vh) * 85));
+    max-height: calc(var(--vh, 1vh) * 85);
+    right: calc(2rem + env(safe-area-inset-right, 0px));
+    bottom: calc(85px + env(safe-area-inset-bottom, 0px));
+    overscroll-behavior: contain;
+}
+
+/* When keyboard is open, let the popup grow and sit on safe bottom */
+.chatbot-popup.keyboard-open {
+    height: calc(var(--vh, 1vh) * 90);
+    max-height: calc(var(--vh, 1vh) * 90);
+    bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Make messages area resilient on small screens */
+.chatbot-messages {
+    min-height: 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+/* Prevent input overflow shrink issues */
+#chatbot-input {
+    min-width: 0;
+}
+
+/* Add extra padding on devices with notches */
+.chatbot-input-container {
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Stronger mobile overrides using dynamic viewport */
+@media (max-width: 768px) {
+    .chatbot-popup {
+        width: min(360px, calc(100vw - 1.5rem));
+        height: calc(var(--vh, 1vh) * 80);
+        max-height: calc(var(--vh, 1vh) * 80);
+        right: max(1rem, env(safe-area-inset-right, 0.5rem));
+        bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+    }
 }
