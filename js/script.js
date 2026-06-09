@@ -4,6 +4,7 @@ window.addEventListener('load', function() {
     const mainContent = document.getElementById('main-content');
     const progressText = document.querySelector('.progress-text');
     const loadingStatus = document.querySelector('.loading-status');
+    const progressBar = document.querySelector('.progress-bar');
     
     const statusMessages = [
         "Initializing portfolio...",
@@ -23,6 +24,7 @@ window.addEventListener('load', function() {
         if (progress > 100) progress = 100;
         
         progressText.textContent = Math.floor(progress) + '%';
+        if (progressBar) progressBar.style.setProperty('--progressWidth', `${progress}%`);
         
         // Update status message based on progress
         const newStatusIndex = Math.floor((progress / 100) * (statusMessages.length - 1));
@@ -49,50 +51,52 @@ window.addEventListener('load', function() {
     }, 150); // Increased from 100ms to 150ms
 });
 
-let menuIcon =document.querySelector('#menu-icon');
+let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
+let navLinks = document.querySelectorAll('header nav a');
+let section = document.querySelectorAll('section');
 
-menuIcon.onclick =() =>{
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-
+if (menuIcon && navbar) {
+    menuIcon.onclick = () => {
+        menuIcon.classList.toggle('bx-x');
+        navbar.classList.toggle('active');
+    }
 }
 
+if (navLinks && menuIcon && navbar) {
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menuIcon.classList.remove('bx-x');
+            navbar.classList.remove('active');
+        });
+    });
+}
 
-
-
-
-
-let section = document.querySelectorAll('section');
-let navLinks =document.querySelectorAll('header nav a');
-
-window.onscroll=() =>{
-    section.forEach(sec =>{
+window.onscroll = () => {
+    section.forEach(sec => {
         let top = window.scrollY;
-        let offset= sec.offsetTop - 150;
+        let offset = sec.offsetTop - 150;
         let height = sec.offsetHeight;
         let id = sec.getAttribute('id');
 
-        if(top >= offset && top < offset + height){
+        if(top >= offset && top < offset + height) {
             navLinks.forEach(links => {
                 links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+                let targetLink = document.querySelector('header nav a[href*=' + id + ']');
+                if (targetLink) targetLink.classList.add('active');
             });
-
-
         };
-
-
     });
 
-
     let header = document.querySelector('header');
+    if (header) {
+        header.classList.toggle('sticky', window.scrollY > 100);
+    }
 
-    header.classList.toggle('sticky',window.scrollY > 100);
-
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
-
+    if (menuIcon && navbar) {
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('active');
+    }
 };
 
 // Function to refresh section animations
@@ -237,21 +241,23 @@ function restartPortfolioAnimations() {
     });
 }
 
-ScrollReveal({
-   // reset:true,
-    distance:'80px',
-    duration:2000,
-    delay:200
-});
+if (typeof ScrollReveal !== 'undefined') {
+    ScrollReveal({
+       // reset:true,
+        distance:'80px',
+        duration:2000,
+        delay:200
+    });
 
-ScrollReveal().reveal('.home-content, .heading',{origin:'top'});
-ScrollReveal().reveal('.home-img, .services-container,.portfolio-box,.contact form',{origin:'bottom'});
-ScrollReveal().reveal('.home-content h1, .about-img',{origin:'left'});
-ScrollReveal().reveal('.home-content p, .about-content',{origin:'right'});
+    ScrollReveal().reveal('.home-content, .heading',{origin:'top'});
+    ScrollReveal().reveal('.home-img, .services-container,.portfolio-box,.contact form',{origin:'bottom'});
+    ScrollReveal().reveal('.home-content h1, .about-img',{origin:'left'});
+    ScrollReveal().reveal('.home-content p, .about-content',{origin:'right'});
 
-// Skills Section Animations
-ScrollReveal().reveal('.skills-category',{origin:'bottom', distance:'50px', duration:1000, delay:200});
-ScrollReveal().reveal('.circular-skill',{origin:'bottom', distance:'30px', duration:800, delay:300, interval:200});
+    // Skills Section Animations
+    ScrollReveal().reveal('.skills-category',{origin:'bottom', distance:'50px', duration:1000, delay:200});
+    ScrollReveal().reveal('.circular-skill',{origin:'bottom', distance:'30px', duration:800, delay:300, interval:200});
+}
 
 // Enhanced Skill Bar Animation
 function animateSkillBars() {
@@ -513,14 +519,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-const typed = new Typed('.multiple-text',{
-    strings:['Frontend Developer ','Full-Stack Developer','UI/UX Designer'],
-    typeSpeed:100,
-    backSpeed:100,
-    backDelay:1000,
-    loop:true
-
-});
+const multipleTextElement = document.querySelector('.multiple-text');
+if (multipleTextElement && typeof Typed !== 'undefined') {
+    const typed = new Typed('.multiple-text',{
+        strings:['Frontend Developer ','Full-Stack Developer','UI/UX Designer'],
+        typeSpeed:100,
+        backSpeed:100,
+        backDelay:1000,
+        loop:true
+    });
+}
 
 // Chatbot Functionality
 class PortfolioChatbot {
@@ -573,23 +581,32 @@ class PortfolioChatbot {
             projects: [
                 "🚀 Here are some of Eranga's notable projects:",
                 "",
-                "🌐 <strong>Ruchi Packaging System</strong>",
-                "• Full-stack web application for order management",
-                "• Built with React.js, Node.js, and MySQL",
-                "• Features: Order handling, resource allocation, delivery management",
-                "• GitHub: https://github.com/Eranga999/packagingSystem",
+                "• <strong>Flutter POS System</strong> (Mobile App)",
+                "• <strong>Easy Fix</strong> (Home Appliance Repair Platform)",
+                "• <strong>Cook Mate</strong> (Full Stack Cooking Platform)",
+                "• <strong>Task Mind</strong> (Android To Do & Reminder App)",
+                "• <strong>Packaging System Website</strong>",
+                "• <strong>Figma UI/UX Projects</strong>",
                 "",
-                "📱 <strong>Mobile Applications</strong>",
-                "• To-Do List App (Kotlin/Android): https://github.com/Eranga999/mobile-application-todo_list-app",
-                "• Fashion Shopping App: https://github.com/Eranga999/menonlinefashionshop",
-                "• All built using Android Studio with modern UI/UX",
+                "Check out the Projects section for live demos and more GitHub links! 👇"
+            ],
+            figma: [
+                "📐 <strong>Eranga's Figma Projects:</strong>",
                 "",
-                "🎯 <strong>Web Projects</strong>",
-                "• Online Fitness Trainer Platform: https://github.com/Eranga999/First-year-second-semester-online-fitness-trainner-",
-                "• Currency Converter: https://github.com/Eranga999/Currency-Converter-Website",
-                "• Responsive design and user-friendly interfaces",
+                "• HCI Design Project: https://www.figma.com/design/lFXKs1cLwyflytwlDm5yof/hci-project?node-id=586-1235&p=f&t=Rd31g8GGfcFsY5Bv-0",
+                "• Figma Concept Design: https://www.figma.com/design/P2MCbuyvB1F0z0sFUzEBJZ/Untitled?node-id=0-1&p=f&t=vmEOpRQkDWk8FHqI-0"
+            ],
+            github: [
+                "💻 <strong>GitHub Repositories:</strong>",
                 "",
-                "Check out the Portfolio section for live demos and more GitHub links! 👆"
+                "View all my code repositories directly on GitHub:",
+                "https://github.com/Eranga999?tab=repositories"
+            ],
+            linkedin: [
+                "👋 <strong>LinkedIn Profile:</strong>",
+                "",
+                "Let's connect professionally! Here is my LinkedIn profile:",
+                "https://www.linkedin.com/in/erangaharsha/"
             ],
             skills: [
                 "💻 <strong>Eranga's Technical Expertise:</strong>",
@@ -943,7 +960,13 @@ class PortfolioChatbot {
         const lowerMessage = message.toLowerCase();
         let response;
 
-        if (lowerMessage.includes('project') || lowerMessage.includes('work') || lowerMessage.includes('portfolio')) {
+        if (lowerMessage.includes('figma')) {
+            response = this.responses.figma;
+        } else if (lowerMessage.includes('github') || lowerMessage.includes('git')) {
+            response = this.responses.github;
+        } else if (lowerMessage.includes('linkedin')) {
+            response = this.responses.linkedin;
+        } else if (lowerMessage.includes('project') || lowerMessage.includes('work') || lowerMessage.includes('portfolio')) {
             response = this.responses.projects;
         } else if (lowerMessage.includes('skill') || lowerMessage.includes('technology') || lowerMessage.includes('tech') || lowerMessage.includes('programming')) {
             response = this.responses.skills;
@@ -1235,3 +1258,28 @@ function setVhUnit() {
 window.addEventListener('resize', setVhUnit);
 window.addEventListener('orientationchange', setVhUnit);
 document.addEventListener('DOMContentLoaded', setVhUnit);
+
+// See More Projects Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const seeMoreBtn = document.getElementById('see-more-btn');
+    if (seeMoreBtn) {
+        seeMoreBtn.addEventListener('click', () => {
+            const hiddenProjects = document.querySelectorAll('.hidden-project');
+            const isShowing = seeMoreBtn.textContent === 'Show Less';
+            
+            hiddenProjects.forEach(project => {
+                if (isShowing) {
+                    project.style.display = 'none';
+                    project.classList.remove('fade-in');
+                } else {
+                    project.style.display = 'flex';
+                    // Trigger reflow for animation
+                    void project.offsetWidth;
+                    project.classList.add('fade-in');
+                }
+            });
+            
+            seeMoreBtn.textContent = isShowing ? 'See More Projects' : 'Show Less';
+        });
+    }
+});
